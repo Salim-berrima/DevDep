@@ -1,6 +1,8 @@
 ---
 # tasks file for docker
 - name : create image docker 
+  become: yes
+  become_method: su
   docker_image : 
     name : devops 
     build : 
