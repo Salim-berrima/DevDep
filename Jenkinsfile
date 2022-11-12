@@ -23,7 +23,7 @@ pipeline {
       stage('Build') {
              steps{
                 script{
-                    sh "chmod 666 /var/run/docker.sock"
+                 
                     sh "ansible-playbook Ansible/build.yml -i Ansible/inventory/host.yml"
                  
                 }
