@@ -2,6 +2,6 @@
 
       - hosts : localhost 
         gather_facts : true 
-        become : true 
+        become : false 
         roles : 
            - {role : docker-registry }
