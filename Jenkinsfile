@@ -1,7 +1,7 @@
 pipeline {
   agent any
     stages {
-        stage('Pull') {
+        stage('git Pull') {
              steps{
                 script{
                     checkout([$class: 'GitSCM', branches: [[name: '*/main']],
@@ -12,7 +12,7 @@ pipeline {
             }
           
         } 
-      stage('install') {
+      stage('npm install') {
              steps{
                 script{
                     sh " npm install --save-dev @angular-devkit/build-angular"
@@ -33,7 +33,7 @@ pipeline {
 
      
         
-        stage('docker') {
+        stage('build docker & run container') {
              steps{
                 script{
                     sh "ansible-playbook Ansible/docker.yml -i Ansible/inventory/host.yml "
@@ -42,7 +42,7 @@ pipeline {
         }
         
             
-        stage('push docker hub') {
+        stage('push to docker hub') {
              steps{
                 script{
                     sh "ansible-playbook Ansible/docker-registry.yml -i Ansible/inventory/host.yml "
