@@ -3,8 +3,8 @@
    - name: Log into DockerHub
      docker_login:
       username: salimberrima
-      password: dckr_pat_o5CnNDvM-mA34NjJLYFj-cDLxvI
-   - name : adding tag to image 
+      password: *****
+   - name : adding tag to image I
      command : docker tag devops:latest salimberrima/devops:latest
    - name : push image to dockerhub 
      command : docker push salimberrima/devops:latest
